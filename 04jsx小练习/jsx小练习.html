@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src='../js/旧版本/react.development.js'></script>
+    <script src='../js/旧版本/react-dom.development.js'></script>
+    <script src='../js/旧版本/babel.min.js'></script>
+</head>
+
+<body>
+    <div id='test'></div>
+    <script type="text/babel">
+        const data = ['vue', 'react', 'angular']
+        const VDOM = (
+            <div>
+                <h1>前端流行三框架</h1>
+                {
+                    data.map((item, index) => {
+                        return <h4 key={index}>{item}</h4>
+                    })
+                }
+            </div>
+        )
+        ReactDOM.render(VDOM, document.querySelector('#test'))
+    </script>
+</body>
+
+</html>
