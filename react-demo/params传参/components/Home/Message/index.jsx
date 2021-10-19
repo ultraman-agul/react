@@ -14,15 +14,14 @@ export default class Message extends Component {
                     msgObjList.map(item => {
                         return (
                             <li key={item.id}>
-                                {/* <Link to={`/home/message/detail?title=${item.title}&content=${item.content}`}>{item.title}</Link> */}
-                                <Link to={{ pathname: '/home/message/detail', state: { title: item.title, content: item.content } }}>{item.title}</Link>
+                                <Link to={`/home/message/detail/${item.title}/${item.content}`}>{item.title}</Link>
                             </li>
                         )
                     })
                 }
                 <div>Message</div>
                 <div>
-                    <Route path='/home/message/detail/' component={Detail}></Route>
+                    <Route path='/home/message/detail/:title/:content' component={Detail}></Route>
                 </div>
             </div>
         )
