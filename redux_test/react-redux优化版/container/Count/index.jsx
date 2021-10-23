@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { increment, decrement, incrementAsync } from '../../redux/actions/count'
+import { createIncrementAction, createDecrementAction, createIncrementAsyncAction } from '../../redux/count_action'
 
 
 class Count extends Component {
@@ -27,8 +27,6 @@ class Count extends Component {
             <div>
                 <h1>
                     现在的值为：{this.props.count}
-                    <br />
-                    现在的人数是： {this.props.numberOfPeople}
                 </h1>
                 <div>
                     <select name="" id="" ref={c => this.selectNum = c}>
@@ -50,14 +48,11 @@ class Count extends Component {
 
 
 export default connect(
-    state => ({
-        count: state.count,
-        numberOfPeople: state.person.length
-    }),
+    state => ({ count: state }),
     {
-        increment,
-        decrement,
-        incrementAsync
+        increment: createIncrementAction,
+        decrement: createDecrementAction,
+        incrementAsync: createIncrementAsyncAction
 
     }
 )(Count)
